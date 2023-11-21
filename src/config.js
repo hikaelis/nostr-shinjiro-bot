@@ -14,6 +14,9 @@ const relayURLs = [
 // 秘密鍵
 const BOT_PRIVATE_KEY_HEX = "<BOTアカウントの秘密鍵>";
 
+// OpenAPIkey
+const OPENAI_API_KEY = "<OPENAPIのKey>";
+
 // いいねする対象の単語
 const targetWords = ["進次郎", "小泉"]
 
@@ -26,4 +29,4 @@ const API_KEY_SECRET = ""
 const ACCESS_TOKEN = "";
 const ACCESS_TOKEN_SECRET ="";
 
-module.exports = { relayURLs, like_relayURLs, BOT_PRIVATE_KEY_HEX, targetWords, API_KEY, API_KEY_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET }
+module.exports = { relayURLs, like_relayURLs, BOT_PRIVATE_KEY_HEX, OPENAI_API_KEY, targetWords, API_KEY, API_KEY_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET }

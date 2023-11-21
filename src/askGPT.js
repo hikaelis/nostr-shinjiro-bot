@@ -1,8 +1,8 @@
 const { OpenAI } = require("openai");
 const { generatePrompt } = require("./generatePrompt");
+const { OPENAI_API_KEY } = require("./config");
 
 const askGPT = async() => {
-	const OPENAI_API_KEY = "<OPEN APIのAPIkey>"
 	
 	const message = generatePrompt();
 
