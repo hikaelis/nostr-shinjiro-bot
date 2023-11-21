@@ -1,3 +1,5 @@
+// 著作権 (c) 2023 jiftechnify jiftech.stlfy@gmail.com
+
 // 現在のunixtime(秒単位)を取得
 const currUnixtime = () => Math.floor(new Date().getTime() / 1000);
 
