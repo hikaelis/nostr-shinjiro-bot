@@ -19,4 +19,4 @@ Nostr(とX(Twitter))上で小泉進次郎氏風の投稿するBotです。
 ## 謝辞
 
 本レポジトリに含まれる多くのコードは[nostr-jp/learn-nostr-by-crafting](https://github.com/nostr-jp/learn-nostr-by-crafting)を基に作成し、一部コピーした箇所は著作権 (c) 2023 jiftechnify jiftech.stlfy@gmail.comに属します。  
-また、本botを作るきっかけとなった、"ひゅうが霙"様はじめ、沢山のリアクションをくださったNostrの住民の方々に感謝の意を表します。
+また、本botを作るきっかけとなった、"ひゅうが霄"様はじめ、沢山のリアクションをくださったNostrの住民の方々に感謝の意を表します。
