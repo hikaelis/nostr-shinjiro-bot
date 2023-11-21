@@ -3,6 +3,12 @@
 Nostr(とX(Twitter))上で小泉進次郎氏風の投稿するBotです。  
 発言内容は、GPT-4のAPIを用いて生成しています。
 
+Npub: npub1shnjrjegvfp48heaw43qgsz44f4uffk50pe4cq73xj5fcmd4qydqy3r4l6
+
+- [nostter](https://nostter.app/shinjiro_bot@hikaelis.github.io)
+- [snort](https://snort.social/nprofile1qqsgteepev5xys6nmu7h2csygp26567y5m28su6uq0gnf2yudk6szxsrtjwqg)
+- [Twitter @shinjiro_AI_bot](https://twitter.com/shinjiro_AI_bot)
+
 ## 開発環境
 
 - node v18.17.1
