@@ -25,4 +25,4 @@ Npub: npub1shnjrjegvfp48heaw43qgsz44f4uffk50pe4cq73xj5fcmd4qydqy3r4l6
 ## 謝辞
 
 本レポジトリに含まれる多くのコードは[nostr-jp/learn-nostr-by-crafting](https://github.com/nostr-jp/learn-nostr-by-crafting)を基に作成し、一部コピーした箇所は著作権 (c) 2023 jiftechnify jiftech.stlfy@gmail.comに属します。  
-また、本botを作るきっかけとなった、"ひゅうが霄"様はじめ、沢山のリアクションをくださったNostrの住民の方々に感謝の意を表します。
+また、Nostrの世界を教えてくれた"ren"様、本botを作るきっかけとなった、"ひゅうが霄"様はじめ、沢山のリアクションをくださったNostrの住民の方々に感謝の意を表します。
