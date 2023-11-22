@@ -1,15 +1,12 @@
 {
-  "name": "learn-nostr-by-crafting",
+  "name": "nostr_shinjiro_bot_public",
   "version": "0.1.0",
-  "main": "index.js",
-  "repository": "ssh://git@github.com/jiftechnify/learn-nostr-by-crafting.git",
-  "author": "jiftechnify",
+  "main": "main.js",
+  "repository": "ssh://git@github.com:hikaelis/nostr_shinjiro_bot_public.git",
+  "author": "hikaekis",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "scripts": {
-    "to-hex": "node scripts/to_hex.js",
-    "gen-key-pair": "node scripts/gen_key_pair.js",
-    "sub-reply": "node scripts/sub_reply.js"
   },
   "dependencies": {
     "axios": "^1.6.2",

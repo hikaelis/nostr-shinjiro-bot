@@ -1,4 +1,4 @@
-// リレーURLの配列(投稿用)
+// 接続するリレーURLの配列(投稿用)
 const relayURLs = [
 'wss://nostr.jp',
 'wss://nos.lol',
@@ -15,7 +15,7 @@ const relayURLs = [
 const BOT_PRIVATE_KEY_HEX = "<BOTアカウントの秘密鍵>";
 
 // OpenAPIkey
-const OPENAI_API_KEY = "<OPENAPIのKey>";
+const OPENAI_API_KEY = "<OPENAI_APIのKey>";
 
 // いいねする対象の単語
 const targetWords = ["進次郎", "小泉"]
