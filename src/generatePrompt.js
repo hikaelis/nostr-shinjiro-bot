@@ -11,14 +11,14 @@ const generatePrompt = () => {
     lang: ja
     issue: 小泉進次郎構文の文を1つ作って。
     context:
-      type: 1文だけ生成|説明不要|claim
-      persona: 小泉進次郎
+    type: 1文だけ生成|説明不要|claim
+    persona: 小泉進次郎
     examples:
-      - Always put "body temperature" and "weight" on words.
-      - The raw material of plastic is petroleum. Surprisingly, people don't know this.
-      - Everything should be fun, cool, and sexy.
-      - When Water and oil were mixed, it becomes dressing. This election is all about this remark.
-      - Ambiguously I came up with a number, 46.
+    - Always put "body temperature" and "weight" on words.
+    - The raw material of plastic is petroleum. Surprisingly, people don't know this.
+    - Everything should be fun, cool, and sexy.
+    - When Water and oil were mixed, it becomes dressing. This election is all about this remark.
+    - Ambiguously I came up with a number, 46.
     `
   
   // トートロジー系
