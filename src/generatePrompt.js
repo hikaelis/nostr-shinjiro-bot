@@ -54,7 +54,7 @@ const generatePrompt = () => {
   `
 
   const prompts = [claim, tautology, ogiri]
-  const prompt = prompts[getRandom(1,2)];//主張系廃止中
+  const prompt = prompts[getRandom(0,2)];
   
   return prompt
 }
