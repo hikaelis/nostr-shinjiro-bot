@@ -6,22 +6,57 @@ const getRandom = (min, max) => {
 }
 
 const generatePrompt = () => {
-  const base_sentence = "小泉進次郎構文の文を1つ作って。説明は無しに発言内容のみを「」無しで答えて。具体例は以下。"
-  // 進次郎構文例文
   // 主張系
-  const claim = "・言葉には必ず「体温」と「体重」をのせる・プラスチックの原料って石油なんですよね。意外にこれ知られてない・楽しく、かっこよく、セクシーであるべきだ・水と油、混ぜればドレッシングになると言われた。今回の選挙はこの一言に尽きる・おぼろげながら浮かんできたんです、46という数字が"
-
-  // トートロジー系
-  const tautology = "・絶対できる、というよりもできっこないことに挑むのは、チャレンジングでいいじゃないですか。・反省している色が見えないという指摘には私自身の問題だと反省している・リモートワークができてるおかげで 公務もリモートワークでできてますから・私の中で30年後を考えたときに30年後の自分は何歳かなと発災直後から考えていた・今のままではいけないと思います だからこそ日本は今のままではいけないと思っている"
-
-  // 大喜利系
-  const ogiri = "・君は誕生日に生まれたんだって？・しかしパン屋って本当にパンが多いね。・鬼は、鬼‼️ 福は、福‼️・息の呼吸・【衆院選】地元がホームタウン・夜景を見るなら断然夜をオススメしますよ。・出場者からメダリストが出るでしょうね。・東京オリンピックの終わりを予感させる、そんな閉会式でしたね。・このりんごは果汁何パーセントくらいですか？・未成年飲酒なんて子供のすることですよ"
-
-  const examples = [claim, tautology, ogiri]
-  const example = examples[getRandom(1,2)];//主張系廃止中
+  const claim = `
+    lang: ja
+    issue: 小泉進次郎構文の文を1つ作って。
+    context:
+      type: 1文だけ生成|説明不要|claim
+      persona: 小泉進次郎
+    examples:
+      - Always put "body temperature" and "weight" on words.
+      - The raw material of plastic is petroleum. Surprisingly, people don't know this.
+      - Everything should be fun, cool, and sexy.
+      - When Water and oil were mixed, it becomes dressing. This election is all about this remark.
+      - Ambiguously I came up with a number, 46.
+    `
   
-  // console.log(base_sentence + example)
-  return base_sentence + example;
+  // トートロジー系
+  const tautology = `
+  lang: ja
+  issue: 小泉進次郎構文の文を1つ作って
+  context:
+	type: 1文だけ生成|説明不要|tautology
+	persona: 小泉進次郎
+  examples:
+	- To the point that I don't seem to be remorseful, I remose it. it's my own problem.
+	- Thanks to working from home, I can carry out my official work remotely.
+	- I was wondering how old I am after 30 years in my mind, just right after that natural disaster.
+	- I don't think Japan should stay the way it is now. That's why I think Japan shouldn't stay the way it is now.
+  `
+  // 大喜利系
+  const ogiri = `
+  lang: ja
+  issue: 小泉進次郎構文の文を1つ作って
+  context:
+	type: 1文だけ生成|説明不要|ogiri
+	persona: 小泉進次郎
+  examples:
+	- I heard you were born on your birthday.
+	- Bakery stores have lots of bread. 
+	- Devil is a devil ‼️ Happiness is happiness ‼️
+	- Breath of Breath.
+	- [House of Representatives Election] My hometown is my hometown.
+	- If you wanna watch the night view, I definitely recommend at night. 
+	- I'm sure there will be medalists from this Olympic. 
+	- What percent of juice is these apples.
+	- Underage drinking is something children do.
+  `
+
+  const prompts = [claim, tautology, ogiri]
+  const prompt = prompts[getRandom(1,2)];//主張系廃止中
+  
+  return prompt
 }
 
 // generatePrompt();
