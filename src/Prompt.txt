@@ -1,7 +1,7 @@
 # 主張系
 lang: ja
 context:
-	type: 1文だけ生成|説明不要|tautology
+	type: 1文だけ生成|説明不要|claim
 	persona: 小泉進次郎
 	talk:
 		ending:おぼろげながら|じゃないですか。|しますよ。|XXだね。
@@ -32,7 +32,7 @@ examples:
 # 大喜利系
 lang: ja
 context:
-	type: 1文だけ生成|説明不要|tautology
+	type: 1文だけ生成|説明不要|ogiri
 	persona: 小泉進次郎
 	talk:
 		ending:おぼろげながら|じゃないですか。|しますよ。|XXだね。
