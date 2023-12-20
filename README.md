@@ -20,6 +20,7 @@ Npub: npub1shnjrjegvfp48heaw43qgsz44f4uffk50pe4cq73xj5fcmd4qydqy3r4l6
 - [rara](https://github.com/grunch/rana)
 - [learn-nostr-by-crafting](https://github.com/nostr-jp/learn-nostr-by-crafting)
 - [Hello, Nostr! Yo Bluesky!分散SNSの最前線](https://techbookfest.org/product/6quLEm85cpd4TMJR17xnVF?productVariantID=kgmgxRsKgbVruvRd2zV1sp)
+- [nostr-fetch](https://github.com/jiftechnify/nostr-fetch)
 - [Hello, Nostr! 先住民が教えるNostrの歩き方](https://booth.pm/ja/items/4781815)
   
 ## 謝辞
@@ -29,3 +30,9 @@ Npub: npub1shnjrjegvfp48heaw43qgsz44f4uffk50pe4cq73xj5fcmd4qydqy3r4l6
 2023/11/22追記:  
 発火大根様がよりTokenの少ないプロンプトを提供してくださいました。(./src/Prompt.txt)
 ありがとうございます。
+
+## Release
+
+### 2023/12/20 v2.0.0 
+:sparkles: 形態素解析によって、タイムライン上の話題に沿った投稿をする機能を追加  
+:art: ソースコード全文をTypeScriptに
