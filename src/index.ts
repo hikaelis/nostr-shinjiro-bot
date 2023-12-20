@@ -1,18 +1,21 @@
-const {relayURLs, like_relayURLs, targetWords} = require("./src/config")
-const {setProfile} = require("./src/setProfile")
-const {askGPT} = require("./src/askGPT");
-const {composeMetadata, postToRelays} = require("./src/postToRelays");
-const {likePosts} = require("./src/likePosts");
-const {Tweet} = require("./src/Tweet")
+import { relayURLs, like_relayURLs, targetWords } from "./config";
+import { setProfile } from "./setProfile";
+import { askGPT } from "./askGPT";
+import { composeMetadata, postToRelays } from "./postToRelays";
+import { likePosts } from "./likePosts";
+import { Tweet } from "./Tweet";
 
+
+/**
+ * メイン関数
+ */
 const main = async() => {
 	// 発言内容生成
 	const message = await askGPT();
 	const metadata = await composeMetadata(message);
 
-
 	//投稿
-	if (message != null){
+	if (message != "null"){
 		for (const relayURL of relayURLs) {
 			try {
 				await postToRelays(relayURL, metadata);
@@ -39,14 +42,11 @@ const main = async() => {
 	//FIXME: いいね件数正常に取れない
 	console.log(`***いいね完了 総いいね件数: ${total_goods}***`)
 
-
 	//Tweet
-	await Tweet(message).then(() => {console.log("***Tweet完了!***")}).catch(e => {
-    console.error('***Tweet失敗...***', error);
+	await Tweet(message).then(() => {console.log("***Tweet完了!***")}).catch(err => {
+    console.error('***Tweet失敗...***', err);
   });
-	
-	process.exit(0);
 }
 
 
-main();
+main().finally(() => {process.exit(0);})

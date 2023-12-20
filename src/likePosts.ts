@@ -1,16 +1,14 @@
-const { currUnixtime, getCliArg } = require("./utils.js");
-const { BOT_PRIVATE_KEY_HEX } = require("./config.js")
-const {
-  relayInit,
-  finishEvent
-} = require("nostr-tools");
-require("websocket-polyfill");
+import { currUnixtime, getCliArg } from "./util";
+import { BOT_PRIVATE_KEY_HEX } from "./config";
+import { relayInit, finishEvent, Event, Relay } from "nostr-tools";
+import "websocket-polyfill";
+
 
 /**
  * リアクションイベントを組み立てる
  * @param {import("nostr-tools").Event} targetEvent リアクション対象のイベント
  */
-const composeReaction = (targetEvent) => {
+const composeReaction = (targetEvent: Event) => {
   const ev = {
     kind: 7,
     content: "+", // good
@@ -22,8 +20,13 @@ const composeReaction = (targetEvent) => {
   return finishEvent(ev, BOT_PRIVATE_KEY_HEX);
 }
 
-// リレーにイベントを送信する関数
-const publishToRelay = (relay, ev) => {
+
+/**
+ *リレーにイベントを送信する
+ * @param {Relay} relay
+ * @param {Event<number>} ev
+ */
+const publishToRelay = (relay: Relay, ev: Event<number>) => {
   const pub = relay.publish(ev);
   pub.on("ok", () => {
     console.log("succeess!");
@@ -33,7 +36,14 @@ const publishToRelay = (relay, ev) => {
   });
 };
 
-const likePosts = async (relayUrl, targetWords) => {
+
+/**
+ *  targetWordsを含む直近1時間以内の投稿にいいねする
+ * @param {string} relayUrl 
+ * @param {string[]} targetWords 
+ * @returns 
+ */
+export const likePosts = async (relayUrl: string, targetWords: string[]): Promise<number> => {
   const relay = relayInit(relayUrl);
   relay.on("error", () => {
     console.error("failed to connect");
@@ -59,5 +69,3 @@ const likePosts = async (relayUrl, targetWords) => {
   });
   return num;
 };
-
-module.exports = {likePosts}

@@ -1,12 +1,20 @@
+import { extractFrequentWord } from "./extractFrequentWord";
 
-const getRandom = (min, max) => {
+const getRandom = (min: number, max: number): number => {
   var random = Math.floor( Math.random() * (max + 1 - min) ) + min;
 	//console.log(random);
   return random;
 }
 
-const generatePrompt = () => {
-  const base_sentence = `進次郎構文を1つのみ生成.説明無し発言内容のみ「」無し`
+export const generatePrompt = async(): Promise<string> => {
+  const keyword: string | null = await extractFrequentWord();
+  let BASE_SENTENCE = `進次郎構文を1つのみ生成.説明無し発言内容のみ「」無し`
+  // テーマに沿うかどうか
+  const wihTheme = getRandom(0,1);
+
+  if (keyword != null && wihTheme == 1){
+    BASE_SENTENCE = `進次郎構文を1つのみ生成.テーマは${keyword}.説明無し発言内容のみ「」無し`
+  }
   // 主張系
   const claim = `
     例)
@@ -51,11 +59,8 @@ const generatePrompt = () => {
 
   const examples = [claim, tautology, ogiri]
   const example = examples[getRandom(0,2)];
-  const prompt = base_sentence + example
+  const prompt = BASE_SENTENCE + example
+  console.log(prompt);
   return prompt
 }
-
-// const prompt = generatePrompt();
-// console.log(prompt)
-
-module.exports = {generatePrompt}
+// generatePrompt();

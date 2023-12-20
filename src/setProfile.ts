@@ -1,18 +1,10 @@
-const { currUnixtime } = require("./utils.js");
-const { BOT_PRIVATE_KEY_HEX } = require("./config.js")
-const {
-  relayInit,
-  finishEvent,
-  nip19,
-	Event,
-} = require("nostr-tools");
-require("websocket-polyfill");
+import { currUnixtime } from "./util";
+import { BOT_PRIVATE_KEY_HEX } from "./config";
+import { relayInit, finishEvent, Event, Relay } from "nostr-tools";
+import "websocket-polyfill";
 
 
-
-// メタデータ(プロフィール)イベントを組み立てる
 const composeMetadata = () => {
-	
 	const profile = {
 		name: "shinjiro_bot", // スクリーンネーム
 		display_name: "小泉進次郎bot", // 表示名
@@ -33,7 +25,11 @@ const composeMetadata = () => {
   return finishEvent(ev, BOT_PRIVATE_KEY_HEX);
 }
 
-const setProfile = async (relayUrl) => {
+/**
+ * プロフィールを設定する
+ * @param {string} relayUrl 
+ */
+export const setProfile = async (relayUrl: string) => {
   const relay = relayInit(relayUrl);
   relay.on("error", () => {
     console.error("failed to connect");
@@ -55,5 +51,3 @@ const setProfile = async (relayUrl) => {
     relay.close();
   });
 };
-
-module.exports = {setProfile}

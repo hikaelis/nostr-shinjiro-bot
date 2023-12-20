@@ -1,10 +1,8 @@
-// 著作権 (c) 2023 jiftechnify jiftech.stlfy@gmail.com
-
 // 現在のunixtime(秒単位)を取得
-const currUnixtime = () => Math.floor(new Date().getTime() / 1000);
+export const currUnixtime = () => Math.floor(new Date().getTime() / 1000);
 
 // 1番目のコマンドライン引数を取得
-const getCliArg = (errMsg) => {
+export const getCliArg = (errMsg: any) => {
   if (process.argv.length <= 2) {
     console.error(errMsg);
     process.exit(1);
