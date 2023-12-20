@@ -17,11 +17,20 @@ Npub: npub1shnjrjegvfp48heaw43qgsz44f4uffk50pe4cq73xj5fcmd4qydqy3r4l6
 
 ## 参考
 
+### npubマイニング
+
 - [rara](https://github.com/grunch/rana)
+
+### nostrへの接続・投稿
+
 - [learn-nostr-by-crafting](https://github.com/nostr-jp/learn-nostr-by-crafting)
 - [Hello, Nostr! Yo Bluesky!分散SNSの最前線](https://techbookfest.org/product/6quLEm85cpd4TMJR17xnVF?productVariantID=kgmgxRsKgbVruvRd2zV1sp)
 - [nostr-fetch](https://github.com/jiftechnify/nostr-fetch)
 - [Hello, Nostr! 先住民が教えるNostrの歩き方](https://booth.pm/ja/items/4781815)
+
+### 形態素解析・頻出単語抽出
+
+- [TinySegmenter](https://github.com/code4fukui/TinySegmenter/tree/main)
   
 ## 謝辞
 
@@ -33,6 +42,7 @@ Npub: npub1shnjrjegvfp48heaw43qgsz44f4uffk50pe4cq73xj5fcmd4qydqy3r4l6
 
 ## Release
 
-### 2023/12/20 v2.0.0 
+### 2023/12/20 v2.0.0
+
 :sparkles: 形態素解析によって、タイムライン上の話題に沿った投稿をする機能を追加  
-:art: ソースコード全文をTypeScriptに
+:art: ソースコード全文をTypeScriptに書き換え
