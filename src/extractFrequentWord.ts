@@ -15,12 +15,13 @@ export const extractFrequentWord = async() => {
   }
   
   // 除外ワード
-  const excludeList = ['posts', '観測所', 'やぶみ川', 'ほりべあ川', 'かすてら川', 'こじら川', 'のこたろ川', 'リレー', 'きりの','...', 'ブロック'];
+  const excludeList = ['posts', '観測所', 'やぶみ川', 'ほりべあ川', 'かすてら川', 'こじら川', 'のこたろ川', 'リレー', 'きりの','...', 'ブロック', 'きり', 'リアクション'];
   // ３文字未満のワードand一部単語and英数字のみ 除外
   segments = segments.filter(segment => segment.length >= 3 && !excludeList.includes(segment) && !/^[a-zA-Z]+$/.test(segment));
   // console.log(segments);
   console.log(segments.mode());
   return segments.mode();
 }
+
 
 // extractFrequentWord();

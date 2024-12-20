@@ -10,7 +10,14 @@ export const getCliArg = (errMsg: any) => {
   return process.argv[2];
 };
 
+export const getRandom = (min: number, max: number): number => {
+  var random = Math.floor( Math.random() * (max + 1 - min) ) + min;
+	//console.log(random);
+  return random;
+}
+
 module.exports = {
   currUnixtime,
   getCliArg,
+  getRandom
 };

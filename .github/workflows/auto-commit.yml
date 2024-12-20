@@ -1,7 +1,7 @@
 name: auto-commit
 
-on:
-  workflow_dispatch:
+# on:
+#   workflow_dispatch:
 
   # schedule:
   #   - cron:  "0 15 * * *" #日本時間で毎日24時に実行する

@@ -1,7 +1,7 @@
 {
   "name": "nostr_shinjiro_bot_v2",
   "version": "2.0.0",
-  "description": "nostr_shinjiro_botをTypescriptに書き換えた。形態素分析を導入しタイムライン上の話題に乗るようにした",
+  "description": "nostr_shinjiro_botをTypescriptに書き換えたver",
   "main": "index.js",
   "scripts": {
     "build": "npx tsc",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hikaelis/nostr_shinjiro_bot_public.git"
+    "url": "git+https://github.com/hikaelis/nostr_shinjiro_bot_v2.git"
   },
   "author": "hikari.huang sileakih@gmail.com",
   "license": "MIT",

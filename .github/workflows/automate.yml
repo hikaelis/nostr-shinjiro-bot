@@ -1,9 +1,9 @@
 name: automate
-on:
-  # schedule:
-  #   - cron: '0 * * * *'
-  # push:
-  #   branches: [ '**' ]
+# on:
+#   schedule:
+#     - cron: '0 * * * *'
+#   push:
+#     branches: [ '**' ]
 
 permissions:
   contents: read
@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [18.x]
+        node-version: [22.x]
     steps:
       - uses: actions/checkout@v3
 
