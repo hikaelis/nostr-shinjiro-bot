@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "nostr-shinjiro-bot-private"
+version = "3.0.0"
+description = ""
+authors = ["hikaelis <sileakih@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+langchain-openai = "^0.2.14"
+python-dotenv = "^1.0.1"
+tweepy = "^4.14.0"
+langchain-google-genai = "^2.0.7"
+pandas = "^2.2.3"
+jupyter = "^1.1.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 127
+extend-include = ["*.ipynb"]
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "D1",    # undocumented
+    "D203",  # one blank line before class
+    "D213",  # multi-line summary second line
+    "TD001", # invalid todo tag
+    "TD002", # missing todo author
+    "TD003", # missing todo link
+    "PD011", # pandas use of dot values
+    "T201"
+]
+unfixable = [
+    "F401", # unused import
+    "F841", # unused variable
+]

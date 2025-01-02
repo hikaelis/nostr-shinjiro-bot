@@ -1,0 +1,55 @@
+name: post_automate
+on:
+  schedule:
+  #   - cron: "0 */2 * * *"
+  # push:
+  #   branches: ["**"]
+
+permissions:
+  contents: read
+  issues: read
+  checks: write
+  pull-requests: write
+
+jobs:
+  generate_and_post:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python  ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Update pip
+        run: |
+          python -m pip install --upgrade pip
+
+      - name: Install Poetry
+        run: |
+          pip install poetry
+          poetry install --no-ansi
+
+      - name: Run Python script
+        run: |
+          poetry run python ./src/main.py
+
+      - name: Read output.txt
+        id: read_output
+        run: |
+          echo "OUTPUT=$(cat ./data/output.txt)" >> $GITHUB_ENV
+
+      - name: Post to Nostr
+        uses: snow-actions/nostr@v1.8.1
+        with:
+          relays: ${{ vars.NOSTR_RELAYS }}
+          private-key: ${{ secrets.NOSTR_PRIVATE_KEY }}
+          content: ${{ env.OUTPUT }}
+        id: publish
+      - run: echo "${event}"
+        env:
+          event: ${{ steps.publish.outputs.event }}

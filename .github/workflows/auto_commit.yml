@@ -1,10 +1,10 @@
 name: auto-commit
 
-# on:
-#   workflow_dispatch:
+on:
+  workflow_dispatch:
 
   # schedule:
-  #   - cron:  "0 15 * * *" #日本時間で毎日24時に実行する
+  #   - cron: "0 15 28-31 * *" # 日本時間で毎月1日の午前0時に実行する
 
 jobs:
   build:
@@ -15,7 +15,7 @@ jobs:
 
       - name: Set current datetime as env variable
         env:
-          TZ: 'Asia/Tokyo' 
+          TZ: "Asia/Tokyo"
         run: echo "CURRENT_DATETIME=$(date +'%Y-%m-%d %H:%M:%S')" >> $GITHUB_ENV
 
       - name: Commit
@@ -25,4 +25,4 @@ jobs:
           echo -e ${{ env.CURRENT_DATETIME }} >> commit_log.txt
           git add commit_log.txt
           git commit -m "[add] 自動コミット:${{ env.CURRENT_DATETIME }}"
-          git push origin main          
+          git push origin main
