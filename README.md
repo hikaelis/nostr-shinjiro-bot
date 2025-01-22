@@ -6,7 +6,7 @@ Nostr と X 上で小泉進次郎氏風の投稿する Bot です。
 Npub: npub1shnjrjegvfp48heaw43qgsz44f4uffk50pe4cq73xj5fcmd4qydqy3r4l6
 
 - [nostter](https://nostter.app/shinjiro_bot@hikaelis.github.io)
-- [X (Twitter) @shinjiro_AI_bot](https://twitter.com/shinjiro_AI_bot)
+- [X (Twitter) @AI__shinjiro__](https://x.com/AI__shinjiro__)
 
 ## 環境
 
