@@ -5,8 +5,9 @@
 ## 特徴
 
 - 小泉進次郎風のユニークな文章生成
-- Nostrプロトコルとの連携
-- Xとの連携
+- NostrとXへのポスト
+  - [nostter](https://nostter.app/shinjiro_bot@hikaelis.github.io)
+  - [X (Twitter) @AI__shinjiro__](https://x.com/AI__shinjiro__)
 
 ## 環境
 
