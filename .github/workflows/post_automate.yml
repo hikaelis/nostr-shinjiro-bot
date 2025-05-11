@@ -1,6 +1,7 @@
 name: post_automate
 on:
-  schedule:
+  # workflow_dispatch:
+  # schedule:
   #   - cron: "0 */2 * * *"
   # push:
   #   branches: ["**"]
@@ -33,6 +34,11 @@ jobs:
         run: |
           pip install poetry
           poetry install --no-ansi
+
+      - name: Generate .env file from Secret
+        run: |
+          echo "${{ secrets.ENV }}" > .env
+          cat .env
 
       - name: Run Python script
         run: |

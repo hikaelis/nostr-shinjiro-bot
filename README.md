@@ -1,12 +1,12 @@
-# AI進次郎 on Nostr・X
+# Nostr Shinjiro Bot
 
-Nostr と X 上で小泉進次郎氏風の投稿する Bot です。  
-発言内容は、Gemini または OpenAI を用いて生成しています。
+このプロジェクトは、小泉進次郎風の文章を生成するAIボットです。NostrとXへのポストも行います。
 
-Npub: npub1shnjrjegvfp48heaw43qgsz44f4uffk50pe4cq73xj5fcmd4qydqy3r4l6
+## 特徴
 
-- [nostter](https://nostter.app/shinjiro_bot@hikaelis.github.io)
-- [X (Twitter) @shinjiro_AI_bot](https://twitter.com/shinjiro_AI_bot)
+- 小泉進次郎風のユニークな文章生成
+- Nostrプロトコルとの連携
+- Xとの連携
 
 ## 環境
 
@@ -16,3 +16,51 @@ Npub: npub1shnjrjegvfp48heaw43qgsz44f4uffk50pe4cq73xj5fcmd4qydqy3r4l6
 - GitHub Actions
   - [snow-actions
 nostr](https://github.com/snow-actions/nostr)
+
+## インストール手順 (Windows + Poetry)
+
+1. リポジェクトリをクローン:
+
+   ```powershell
+   git clone https://github.com/yourusername/nostr-shinjiro-bot.git
+   cd nostr-shinjiro-bot
+   ```
+
+2. 仮想環境を作成:
+
+   ```powershell
+   poetry config virtualenvs.in-project true
+   poetry install
+   ```
+
+3. 環境変数を`.env`に設定:
+
+   ```txt
+   # OpenRouter
+   OPEN_ROUTER_API_KEY=
+   OPEN_ROUTER_BASE_URL=<https://openrouter.ai/api/v1>
+
+   # Model
+   MODEL_NAME=deepseek/deepseek-chat-v3-0324:free
+
+   # X
+   X_API_KEY=
+   X_API_KEY_SECRET=
+   X_ACCESS_TOKEN=
+   X_ACCESS_TOKEN_SECRET=
+   X_BEARER_TOKEN=
+   ```
+
+## 使用方法
+
+1. 仮想環境をアクティブ化:
+
+   ```powershell
+   poetry shell
+   ```
+
+2. ボットを起動:
+
+   ```powershell
+   python ./src/main.py
+   ```

@@ -1,35 +1,26 @@
 from pathlib import Path
+from textwrap import dedent
 
 import pandas as pd
 from langchain_core.output_parsers import StrOutputParser
-from langchain_google_genai import GoogleGenerativeAI
 from langchain_openai import ChatOpenAI
 
-from config import GEMINI_API_KEY, OPENAI_API_KEY, output_file
+from config import OPEN_ROUTER_API_KEY, OPEN_ROUTER_BASE_URL, output_file
 
 
 class LLM:
     def __init__(self, model_name: str, sys_prompt: str, question_prompt: str, ref_data_dir: str) -> None:
-        if model_name == "gemini":
-            self.model = GoogleGenerativeAI(
-                model="gemini-2.0-flash-exp",
-                api_key=GEMINI_API_KEY,
-                temperature=1.0,
-                max_tokens=None,
-                timeout=None,
-                max_retries=3,
-            )
-        if model_name == "openai":
-            self.model = ChatOpenAI(
-                model="gpt-4o",
-                api_key=OPENAI_API_KEY,
-                temperature=1.0,
-                max_tokens=None,
-                timeout=None,
-                max_retries=3,
-            )
+        self.model = ChatOpenAI(
+            model=model_name,
+            api_key=OPEN_ROUTER_API_KEY,
+            base_url=OPEN_ROUTER_BASE_URL,
+            temperature=1.0,
+            max_tokens=None,
+            timeout=None,
+            max_retries=3,
+        )
 
-        self.sys_prompt = sys_prompt
+        self.sys_prompt = dedent(sys_prompt)
         self.ref_tweets = self.get_ref_tweets(Path(ref_data_dir))
         self.question_prompt = question_prompt
         self.parser = StrOutputParser()
@@ -55,10 +46,11 @@ class LLM:
 
         return messages
 
-    def generate_response(self, messages: list[dict[str, str]]) -> str:
+    def generate_response(self) -> str:
+        messages = self.create_prompt()
         chain = self.model | self.parser
         res = chain.invoke(messages)
-        print(f"生成結果: {res}")
+        print(f"生成結果>>>\n {res}")
         # テキストファイルに出力
         # 常に上書き
         with open(  # noqa: PTH123

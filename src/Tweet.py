@@ -27,4 +27,4 @@ class Tweet:
 
     def tweet(self) -> None:
         self.client.create_tweet(text=self.text)
-        print(self.text)
+        print(f"生成結果>>>\n {self.text}")
