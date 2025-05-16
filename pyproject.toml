@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "nostr-shinjiro-bot-private"
-version = "3.0.0"
+name = "nostr-shinjiro-bot"
+version = "4.0.0"
 description = ""
-authors = ["hikaelis <sileakih@gmail.com>"]
+authors = ["hikaelis <https://github.com/hikaelis>"]
 readme = "README.md"
 package-mode = false
 
@@ -20,7 +20,7 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.ruff]
-line-length = 127
+line-length = 88
 extend-include = ["*.ipynb"]
 
 [tool.ruff.format]
