@@ -2,7 +2,8 @@ name: post_automate
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 0,2,4,6,8,10,12,14,15,22 * * *"
+    # 毎日日本時間 07:00,09:00,…,23:00,24:00 に実行 (UTC に変換した時刻)
+    - cron: "0 22,0,2,4,6,8,10,12,14,15 * * *"
   push:
     branches: ["main"]
 
