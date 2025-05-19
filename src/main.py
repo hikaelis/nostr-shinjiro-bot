@@ -1,5 +1,6 @@
 import sys
-from logging import getLogger
+
+from loguru import logger
 
 from common.config import LOG_LEVEL, MODEL_NAME, question_prompt, sys_prompt
 from common.my_logger import set_logger
@@ -7,7 +8,6 @@ from llm_handler import LLMHandler
 from tweet_handler import TweetHandler
 
 set_logger()
-logger = getLogger(__name__)
 
 
 def main() -> None:
@@ -24,8 +24,8 @@ def main() -> None:
             tweet_handler = TweetHandler(response)
             tweet_handler.post()
 
-    except Exception:
-        logger.exception("An error occurred: %s")
+    except Exception:  # noqa: BLE001
+        logger.exception("An error occurred")
         sys.exit(1)
     finally:
         logger.info("処理が完了しました")

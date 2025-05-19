@@ -1,5 +1,4 @@
-from logging import getLogger
-
+from loguru import logger
 from tweepy import Client
 
 from common.config import (
@@ -9,8 +8,6 @@ from common.config import (
     X_API_KEY_SECRET,
     X_BEARER_TOKEN,
 )
-
-logger = getLogger(__name__)
 
 
 class TweetHandler:
@@ -24,9 +21,9 @@ class TweetHandler:
 
     def __init__(self, text: str) -> None:
         self.text = text
-        self.client = self.get_client()
+        self.client = self._get_client()
 
-    def get_client(self) -> Client:
+    def _get_client(self) -> Client:
         """Twitter APIクライアントを取得するメソッド.
 
         Returns:
@@ -52,4 +49,4 @@ class TweetHandler:
     def post(self) -> None:
         """ツイートを投稿するメソッド."""
         self.client.create_tweet(text=self.text)
-        logger.info("ツイートしました: %s", self.text)
+        logger.info("ツイートしました: {}", self.text)
