@@ -21,6 +21,11 @@ package = false
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
+[dependency-groups]
+dev = [
+    "pip-licenses>=5.0.0",
+]
+
 [tool.ruff]
 line-length = 88
 extend-include = ["*.ipynb"]
