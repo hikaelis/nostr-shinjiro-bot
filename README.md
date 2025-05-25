@@ -11,7 +11,7 @@
 
 ## 環境
 
-- Python 3.11
+- Python 3.12.10
 - LangChain
 - Tweepy
 - GitHub Actions

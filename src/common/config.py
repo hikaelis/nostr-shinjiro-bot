@@ -28,8 +28,8 @@ format:
 rules:
   - 進次郎構文でギャグ風に仕上げる
   - 大喜利に必ず回答する
-  - exmaplesの例文を参考にするが独創性のある内容を出力する
-  - exmaplesの例文と同一の内容の回答禁止
+  - examplesの例文を参考にするが独創性のある内容を出力する
+  - examplesの例文と同一の内容の回答禁止
 
 exmaples:
   {examples}
