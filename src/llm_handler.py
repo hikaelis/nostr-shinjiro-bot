@@ -32,7 +32,6 @@ class LLMHandler:
             api_key=OPEN_ROUTER_API_KEY,
             base_url=OPEN_ROUTER_BASE_URL,
             temperature=1.0,
-            max_tokens=None,
             timeout=None,
             max_retries=3,
         )
@@ -60,7 +59,8 @@ class LLMHandler:
         for csv_file_path in csv_file_paths:
             _df = pd.read_csv(csv_file_path, index_col=0)
             df_ref = pd.concat([df_ref, _df])
-        return df_ref["text"].tolist()
+
+        return list(map(str, df_ref["text"].tolist()))
 
     def _create_prompt(self) -> list[dict[str, str]]:
         """プロンプトを作成するメソッド.
@@ -98,6 +98,7 @@ class LLMHandler:
         """
         messages = self._create_prompt()
         chain = self.model | self.parser
+        res = ""
 
         while not self.is_valid_response:
             # LLMを呼び出して応答を生成
@@ -127,7 +128,7 @@ class LLMHandler:
 
         return res
 
-    def _check_response(self, response: str) -> bool:
+    def _check_response(self, response: str | None) -> bool:
         """LLMの応答をチェックするメソッド.
 
         Args:
@@ -137,6 +138,11 @@ class LLMHandler:
             bool: 応答が正しい場合はTrue, それ以外はFalse
 
         """
+        # 応答がNoneでないかどうか
+        if response is None:
+            logger.warning("応答がNoneです")
+            return False
+
         # 応答が140文字以内かどうか
         max_length = 140
         if len(response) > max_length:
