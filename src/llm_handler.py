@@ -155,7 +155,22 @@ class LLMHandler:
             return False
 
         # 応答に不正な文字が含まれていないかどうか
-        not_allowed_strings = ["「", "」", "-", "AI", "#"]
+        not_allowed_strings = [
+            "「",
+            "」",
+            "-",
+            "AI",
+            "#",
+            "進次郎",
+            "構文",
+            "ギャグ",
+            "大喜利",
+            "回答",
+            "例文",
+            "いやね",
+            "あのね",
+            "ところで",
+        ]
         for string in not_allowed_strings:
             if string in response:
                 logger.warning(f"応答に不正な文字列({string})が含まれています")

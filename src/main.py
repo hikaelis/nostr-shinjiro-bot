@@ -2,7 +2,7 @@ import sys
 
 from loguru import logger
 
-from common.config import LOG_LEVEL, MODEL_NAME, question_prompt, sys_prompt
+from common.config import MODEL_NAME, TWEET, question_prompt, sys_prompt
 from common.my_logger import set_logger
 from llm_handler import LLMHandler
 from tweet_handler import TweetHandler
@@ -29,7 +29,8 @@ def main() -> None:
             response = llm_handler.generate_response()
 
             # 生成したコンテンツをツイート
-            if LOG_LEVEL == "INFO":
+            if TWEET:
+                logger.info("ツイートを投稿します")
                 tweet_handler = TweetHandler(response)
                 tweet_handler.post()
 

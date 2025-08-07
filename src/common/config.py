@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 LOG_LEVEL = "INFO"
+TWEET = False  # ツイートするかどうかのフラグ
 # Load environment variables
 OPEN_ROUTER_API_KEY = os.getenv("OPEN_ROUTER_API_KEY")
 OPEN_ROUTER_BASE_URL = os.getenv("OPEN_ROUTER_BASE_URL")
